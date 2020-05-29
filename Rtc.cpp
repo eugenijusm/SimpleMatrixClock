@@ -4,7 +4,7 @@
 #include "Config.h"
 
 uint8_t currentTemperatureH = 0;  // temperature in degC
-uint8_t currentTemperatureL = 0; // 255 = 0.75, 128 = 0.5, 64 = 0,25, other = 0.0
+uint8_t currentTemperatureL = 0;  // temperature fraction 255 = 0.75, 128 = 0.5, 64 = 0,25, other = 0.0
 
 Rtc::Rtc(){}
 
@@ -14,9 +14,9 @@ void Rtc::Setup(){
 
 void Rtc::Set() {  
   Wire.beginTransmission(DS3231_I2C_ADDRESS);
-  Wire.write(0); //set 0 to first register
+  Wire.write(0);
 
-  Wire.write(decToBcd(0));    // seconds
+  Wire.write(decToBcd(0));         // seconds
   Wire.write(decToBcd(Minutes));
   Wire.write(decToBcd(Hours));
   Wire.write(decToBcd(DayOfWeek)); // 1=su, 2=mo, 3=tu

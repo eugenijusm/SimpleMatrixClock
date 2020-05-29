@@ -4,8 +4,8 @@
 class Buttons{
   public:
     Buttons();
-    // void Measure();
-    bool IsButtonAPressed();  // EM TODO STOP: continue with implementation
+
+    bool IsButtonAPressed();
     bool IsButtonBPressed();
 };
 

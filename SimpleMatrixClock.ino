@@ -19,7 +19,7 @@ unsigned long refreshMillis;
 
 uint8_t periodCounter;
 #define SYSTEM_TICK 250 // ms
-#define MAX_PERIOD 12 // every 3s, when tick=250ms
+#define MAX_PERIOD 12   // every 3s, when system_tick = 250ms
 
 uint8_t daysInMonth = 1;
 
@@ -53,7 +53,6 @@ void loop() {
             #ifdef DEBUG
             Serial.println(F("State => Set hours"));
             #endif            
-            // matrix.DrawInt(1, 88); // TODO: TEMPORARY   Also might be wise to reset periods and have a delay that way?
             matrix.DrawChar('H', 0, 0);
             matrix.DrawChar('r', 0, 1);
             systemState = SET_HOURS;            
@@ -206,11 +205,3 @@ uint8_t GetDaysInMonth(){
     return 29;
   }
 }
-
-  /*
-  matrix.DrawDigit(0, 3);
-  matrix.DrawDigit(1, 4);
-  matrix.DrawDigit(2, 8);
-  matrix.DrawDigit(3, 11);
-  delay(3000);
-  */

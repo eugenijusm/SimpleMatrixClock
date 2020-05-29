@@ -1,3 +1,4 @@
+// https://xantorohara.github.io/led-matrix-editor/
 #ifndef Font_h
 #define Font_h
 
@@ -13,7 +14,7 @@ const uint64_t fontNumbers[] = {
   0x003c66663c66663c,
   0x001c30607c66663c,
   0x7effe77e7ee7ff7e,  // test 8x8x8
-  0x1c2222221c22221c  // test 8x8x8 thin
+  0x1c2222221c22221c   // test 8x8x8 thin
 };
 
 // ASCII codes
