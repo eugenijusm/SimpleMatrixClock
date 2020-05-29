@@ -6,6 +6,7 @@ class Rtc{
     Rtc();
     void Setup();
     void Get();
+    void GetTemperature();
     void Set();
     uint8_t Seconds;
     uint8_t Minutes;
@@ -14,6 +15,7 @@ class Rtc{
     uint8_t DayOfMonth;
     uint8_t Month;
     uint8_t Year;
+    uint8_t Temperature;  // Decimal part available inside, but not exposed
 
   private:
     uint8_t decToBcd(uint8_t val);

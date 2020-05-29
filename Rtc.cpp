@@ -3,8 +3,11 @@
 #include "Rtc.h"
 #include "Config.h"
 
-uint8_t currentTemperatureH = 0;  // temperature in degC
-uint8_t currentTemperatureL = 0;  // temperature fraction 255 = 0.75, 128 = 0.5, 64 = 0,25, other = 0.0
+// Decimal part
+// 255 = 0.75, 128 = 0.5, 64 = 0,25, other = 0.0
+// TODO: if ever used, combine to float with Temperature
+uint8_t temperatureDecimal;
+const uint8_t temperatureOffset = 98; // 99 = -1 100 = 0 101 = +1
 
 Rtc::Rtc(){}
 
@@ -39,6 +42,25 @@ void Rtc::Get() {
   DayOfMonth = bcdToDec(Wire.read());
   Month = bcdToDec(Wire.read());
   Year = bcdToDec(Wire.read());
+}
+
+void Rtc::GetTemperature(){
+  Wire.beginTransmission(DS3231_I2C_ADDRESS);
+  Wire.write(0x11);
+  Wire.endTransmission();
+
+  Wire.requestFrom(DS3231_I2C_ADDRESS, 2);  //request - 2 bytes from RTC
+  if (Wire.available()) {
+    Temperature = Wire.read();
+    temperatureDecimal = Wire.read();  
+
+    // T correction
+    Temperature = Temperature + temperatureOffset - 100;
+  }
+  else {  // error values
+    Temperature = 0; 
+    temperatureDecimal = 0;
+  }
 }
 
 uint8_t Rtc::decToBcd(uint8_t val) {

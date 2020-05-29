@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 
-#define DEBUG
+//#define DEBUG
 
 #define MATRICES_COUNT 4
 #define MATRICES_PER_LINE 2

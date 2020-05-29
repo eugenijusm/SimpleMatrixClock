@@ -47,6 +47,9 @@ void MatrixController::DrawChar(char character, uint8_t row, uint8_t column)
   else if (character >= 97 && character <= 122){
     charIndex = character - 97 + 26; // + lower case offset    
   }
+  else{
+    charIndex = 52; // empty
+  }
   #ifdef DEBUG
       Serial.print(F("Chr idx:"));
       Serial.println(charIndex);
