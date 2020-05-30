@@ -1,13 +1,13 @@
 # SimpleMatrixClock
-Simple Arduino and MAX7219 matrices based simple clock. This implementation doesn't have fancy bells and whistles like 12/24h support, alarm, animations etc.
-Requirements were rather simple: don't reset when there is no power, be visible from relatively long distance (thus bulky font) and adjust brightness according to environment lighting.
+Simple Arduino and MAX7219 matrices based clock. It doesn't have fancy features like 12/24h support, alarm, animations etc. But these are rather useless in daily use; just showing hours and minutes is way more practical :)
+Requirements were rather simple:
+* don't reset when there is no power
+* be visible from relatively long distance (thus bulky font)
+* adjust brightness according to environment lighting.
+There is a simple menu to set the time after RTC battery is replaced.
 
-Schematic will come later when/if I'll find time to learn how to work with KiCad or EasyEDA.
-Basically it's just a set of modules connected together:
-* Arduino Mini Pro
-* RTC I2C module (e.g. DS3231) SDA to A4; SCL to A5
-* Four MAX7219 matrices; Data to D4; CLK to D6; CS to D6
-* LDR from Vcc to A0 and pull-down 10K resistor
-* two single touch buttons
-* PSU 5V 2A. 1A is a bit to weak to drive 4 matrices at high brightness
+Electronically it's just a set of modules connected together:
+![Schematic](https://raw.githubusercontent.com/eugenijusm/SimpleMatrixClock/master/Construction/Schematic.png)
+
+PSU should be around 5V 2A. 1A is a bit to weak to drive 4 matrices at high brightness.
 Some of the pins can be rebinded in config.h
