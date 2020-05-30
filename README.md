@@ -14,4 +14,5 @@ Some of the pins can be rebinded in config.h
 
 Physically it looks like this:
 ![Looks](https://raw.githubusercontent.com/eugenijusm/SimpleMatrixClock/master/Construction/Looks.jpg)
+
 10x15 photo frame is used. Front glass is tinted with 50% car glass film to make matrix display more distinctive. Even darker film might work even better; but then LDR probably should be located somewhere else.
